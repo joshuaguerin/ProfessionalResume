@@ -4,6 +4,11 @@
 %----------------------------------------------------------------------------------------
 %	PACKAGES
 %----------------------------------------------------------------------------------------
+\usepackage[dvipsnames]{xcolor}
+
+% pulled the style sheet color into a single command for ease of updating
+\newcommand{\thecolor}{Blue}
+
 \RequirePackage[utf8]{inputenc}    			% Input-encoding
 \RequirePackage{xstring, xifthen}			% provides \isempty test
 \RequirePackage{fontawesome5, moresize}		% Fonts
@@ -28,11 +33,11 @@
 \RequirePackage[pdfusetitle,
 	hidelinks,		
 	pdfborder		={0 0 0},		% Avoid borders in PDF
-	linkcolor		= red,			% simple internal links
+	linkcolor		= \thecolor,			% simple internal links
 	colorlinks		= true,			% Set text color
 	anchorcolor		= black,		% Anchor text
 	menucolor		= black,		% Acrobat-menu
-	urlcolor		= red			% Reference to internet links 
+	urlcolor		= \thecolor			% Reference to internet links 
 ]{hyperref}							% Hyperlink
 \RequirePackage{fancyhdr, lastpage}	% Paging style
 \pagestyle{fancy}
@@ -47,8 +52,8 @@
 \def\firstLetter#1#2@{#1}
 \def\secondLetter#1#2@{#2}
 \newcommand\tab[1][.9cm]{\hspace*{#1}}
-\newcommand{\cvContactSpace}{\quad\textcolor{red}{$\bullet$}\quad}
-\newcommand{\cvContactSep}{\textcolor{red}{\textbf{|}} }
+\newcommand{\cvContactSpace}{\quad\textcolor{\thecolor}{$\bullet$}\quad}
+\newcommand{\cvContactSep}{\textcolor{\thecolor}{\textbf{|}} }
 %============================================================================%
 %	CV COMMANDS
 %============================================================================%
@@ -67,7 +72,7 @@
 	\begin{center}
 		{\fontsize{27}{0}\selectfont
 			\texttt{\@firstname \ {\color{gray}{\@lastname}} }
-			\textcolor{red}{\cvContactSep \textbf{#1}}}\\
+			\textcolor{\thecolor}{\cvContactSep \textbf{#1}}}\\
 		{\fontsize{12}{0}\selectfont
 			\href{mailto:\@mail}{\faIcon{envelope} \@mail}
 			\cvContactSpace \@address
@@ -80,7 +85,7 @@
 %	CV SECTION
 \newcommand{\cvSection}[1]{
 	
-	{\textcolor{red}{\texttt{\Huge{\firstLetter#1@}\LARGE{\secondLetter#1@}} \hrulefill}}\\~\\
+	{\textcolor{\thecolor}{\texttt{\Huge{\firstLetter#1@}\LARGE{\secondLetter#1@}} \hrulefill}}\\~\\
 }
 %	 CV Block with date/time
 \newcommand{\CVBlockWithTime}[5]{
